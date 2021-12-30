@@ -1,0 +1,22 @@
+{
+  "name": "fun-pokemon-battler-main",
+  "version": "1.0.0",
+  "description": "",
+  "main": "pokemon.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dappernerddesigns/pokemon-battler-nc-project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dappernerddesigns/pokemon-battler-nc-project/issues"
+  },
+  "homepage": "https://github.com/dappernerddesigns/pokemon-battler-nc-project#readme",
+  "dependencies": {
+    "jest": "^27.4.5"
+  }
+}
