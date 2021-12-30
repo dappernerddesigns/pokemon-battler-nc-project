@@ -1,4 +1,4 @@
-const Pokemon = require('../pokemon.js')
+const { Pokemon, FireType, WaterType, GrassType } = require('../pokemon.js')
 
 describe('Creating Pokemon', () => {
   test('Using the constructor a pokemon has all the required attributes', () => {
@@ -21,8 +21,6 @@ describe('Creating Pokemon', () => {
       sound: 'Eev...Eevee!',
       moves: 'Headbutt',
       type: 'Normal',
-      strength: 'None',
-      weakness: 'Fighting',
     }
 
     expect(actual).toEqual(expected)
@@ -42,6 +40,58 @@ describe('Creating Pokemon', () => {
 
     let actual = bulbasaur.talk()
     let expected = 'Bul... Bulbasaur!'
+
+    expect(actual).toBe(expected)
+  })
+
+  test('Fire, water and grass types can be made from a class extender', () => {
+    const flareon = new FireType(
+      'Flareon',
+      65,
+      20,
+      'Fla... Flareon!',
+      'Fire blast',
+    )
+
+    let actual = flareon
+    let expected = {
+      name: 'Flareon',
+      hitPoints: 65,
+      attackDmg: 20,
+      sound: 'Fla... Flareon!',
+      moves: 'Fire blast',
+      type: 'Fire',
+      strength: 'Grass',
+      weakness: 'Water',
+    }
+
+    expect(actual).toEqual(expected)
+  })
+
+  test('Pokemon types have correct strengths and weaknesses', () => {
+    const fire = new FireType()
+    const water = new WaterType()
+    const grass = new GrassType()
+
+    expect(fire.weakness).toBe('Water')
+    expect(water.weakness).toBe('Grass')
+    expect(grass.weakness).toBe('Fire')
+    expect(fire.strength).toBe('Grass')
+    expect(water.strength).toBe('Fire')
+    expect(grass.strength).toBe('Water')
+  })
+
+  test('useYourMoves method returns the move of the created Pokemon.', () => {
+    const charmander = new FireType(
+      'Charmander',
+      44,
+      17,
+      'Char...Charmander!',
+      'Flamethrower',
+    )
+
+    let actual = charmander.useYourMoves()
+    let expected = 'Flamethrower'
 
     expect(actual).toBe(expected)
   })
