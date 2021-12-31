@@ -16,7 +16,7 @@
     "url": "https://github.com/dappernerddesigns/pokemon-battler-nc-project/issues"
   },
   "homepage": "https://github.com/dappernerddesigns/pokemon-battler-nc-project#readme",
-  "dependencies": {
+  "devDependencies": {
     "jest": "^27.4.5"
   }
 }
