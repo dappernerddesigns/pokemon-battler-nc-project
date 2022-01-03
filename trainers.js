@@ -4,7 +4,7 @@ class Trainer {
     this.pokeBelt = {}
     this.slots = 6
     this.storage = 0
-    this.speed = Math.floor(Math.random() * 21)
+    this.speed = Math.floor(Math.random() * 21) //speed used to determine first move in battle class
   }
 
   catch(pokemon) {

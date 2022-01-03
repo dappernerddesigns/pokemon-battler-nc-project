@@ -15,20 +15,26 @@ describe('Battle', () => {
     const playerOne = new Trainer('Red')
     const playerTwo = new Trainer('Blue')
 
-    let testBattle = new Battle(playerOne, playerTwo, charmander, bulbasaur)
-
+    let testBattle = new Battle(playerOne, playerTwo)
+    playerOne.catch(charmander)
+    playerTwo.catch(bulbasaur)
     expect(testBattle).toHaveProperty('trainerOne')
     expect(testBattle).toHaveProperty('trainerTwo')
     expect(testBattle.trainerOne.storage).toBe(1)
     expect(testBattle.trainerTwo.storage).toBe(1)
   })
 
-  test('Turn function decides which player goes first', () => {
+  test('Fight method depletes pokemon health', () => {
     const playerOne = new Trainer('Red')
     const playerTwo = new Trainer('Blue')
 
-    let testBattle = new Battle(playerOne, playerTwo, charmander, bulbasaur)
+    let testBattle = new Battle(playerOne, playerTwo)
+    playerOne.catch(charmander)
+    playerTwo.catch(charmander)
+    charmander.useYourMoves()
+    let actual = charmander.hitPoints
+    let expected = 27
 
-    playerOne.speed = 12
+    expect(actual).toBe(expected)
   })
 })
